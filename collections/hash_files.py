@@ -36,8 +36,8 @@ def createHashList(path="."):
 def md5sum(fname):
     fptr = open(fname, "rb").read()
     md5sum = hashlib.md5(fptr).hexdigest()
+    fptr.close()
     platform = getPlatformByExtension(fname)
     print(f"{fname}, {md5sum} {platform}")
-
 
 createHashList()
