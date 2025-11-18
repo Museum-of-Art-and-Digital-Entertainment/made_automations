@@ -17,7 +17,10 @@ def main():
         for game in gameList:
             fileList = os.listdir(f"{letter}/{game}")
             for file in fileList:
-                move_game(game, file, f"{letter}/{game}")
+                try:
+                    move_game(game, file, f"{letter}/{game}")
+                except Exception as e:
+                    logger.error(f"Unable to transfer {game}")
     print("done")
 
 def move_game(title: str, fname: str, path: str):
